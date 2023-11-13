@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Afficher un formulaire permettant de choisir le moment de la pause et POSTER celui-ci pour
+    obtenir le temps restant ou le temps échu -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8 ">
+            <form method="post">
+                <!--Label-->
+                <label>Choix du temps</label>
+                <!--Input de type select-->
+                <select class="form-select" size="3" name="Choix" id="selChoix">
+                    <option value="Matin">Pause du matin</option>
+                    <option value="Midi">Pause de midi</option>
+                    <option value="Aprem">Pause de l'après-midi</option>
+                </select>
+                <br />
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Role" value="Formateur" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Formateur
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Role" value="Participant" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Participant
+                    </label>
+                </div>
+                <!--Mon boutton -->
+                <br />
+                <button class="btn btn-info" type="submit">Calculer</button>
+            </form>
+            </div>
+            <div class="col-4">
+            @{
+                if(ViewBag.Message !=null)
+                {
+                    @:<div class="alert alert-info">@ViewBag.Message </div>
+                }
+            }
+                
+            </div>
+           
+        </div>
+
+    </div>
+   
+

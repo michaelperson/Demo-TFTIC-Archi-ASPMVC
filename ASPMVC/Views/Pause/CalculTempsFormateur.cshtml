@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Calculer le temps restant pour les pauses</h1>
+<form method="post" action="/Pause/CalculTemps">
+<label for="Pause">Pause :</label>
+<select id="Pause" name="Pause" asp-items="@Html.GetEnumSelectList<EPauses>()">
+    <option value="">Pour quelle pause ?</option>
+</select>
+<br />
+    <input type="radio" name="Role" value="Formateur" /><label for="Role">Formateur</label><br />
+    <input type="radio" name="Role" value="Participant" /> <label for="Role">Participant</label><br />
+<button type="submit">Calcul</button>
+</form>
+
+@if(ViewBag.Message !=null)
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
